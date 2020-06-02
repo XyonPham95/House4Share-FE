@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { CircleArrow as ScrollUpButton } from "react-scroll-up-button";
 
 class Footer extends Component {
   render() {
@@ -46,9 +47,15 @@ class Footer extends Component {
             <ul className="social-links">{networks}</ul>
           </div>
           <div id="go-top">
-            <a className="smoothscroll" title="Back to Top" href="#home">
+            <a
+              className="smoothscroll"
+              title="Back to Top"
+              href="/"
+              onClick={ScrollUpButton}
+            >
               <i class="fas fa-arrow-up"></i>
             </a>
+            <ScrollUpButton />
           </div>
         </div>
       </footer>

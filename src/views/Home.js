@@ -1,4 +1,5 @@
 import React from "react";
+import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -14,6 +15,7 @@ import { useHistory } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    display: "flex",
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -25,10 +27,15 @@ const useStyles = makeStyles((theme) => ({
 
 export default function MenuAppBar(props) {
   const classes = useStyles();
+  const [open, setOpen] = React.useState(false);
   const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
+  const openM = Boolean(anchorEl);
   const history = useHistory();
+
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  };
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -40,6 +47,18 @@ export default function MenuAppBar(props) {
 
   const home = () => {
     window.location = "/";
+  };
+
+  const profile = () => {
+    history.push("/user/profile");
+  };
+
+  const createHome = () => {
+    history.push("/user/createhouse");
+  };
+
+  const product = () => {
+    history.push("/products");
   };
 
   async function logout() {
@@ -60,13 +79,17 @@ export default function MenuAppBar(props) {
       <AppBar
         position="static"
         style={{ background: "transparent", color: "red" }}
+        className={clsx(classes.appBar, {
+          [classes.appBarShift]: open,
+        })}
       >
         <Toolbar>
           <IconButton
-            edge="start"
-            className={classes.menuButton}
             color="inherit"
-            aria-label="menu"
+            aria-label="open drawer"
+            onClick={handleDrawerOpen}
+            edge="start"
+            className={clsx(classes.menuButton, open && classes.hide)}
           >
             <MenuIcon />
           </IconButton>
@@ -74,10 +97,22 @@ export default function MenuAppBar(props) {
             color="inherit"
             variant="h6"
             className={classes.title}
+            onClick={product}
+            noWrap
+          >
+            Houses
+          </Typography>
+
+          <Typography
+            color="inherit"
+            variant="h6"
+            className={classes.title}
             onClick={home}
+            noWrap
           >
             House4Share
           </Typography>
+
           {auth && (
             <div>
               <IconButton
@@ -116,11 +151,11 @@ export default function MenuAppBar(props) {
                   vertical: "top",
                   horizontal: "right",
                 }}
-                open={open}
+                open={openM}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={profile}>Profile</MenuItem>
+                <MenuItem onClick={createHome}>Add House</MenuItem>
                 <MenuItem onClick={logout}>Log Out </MenuItem>
               </Menu>
             </div>

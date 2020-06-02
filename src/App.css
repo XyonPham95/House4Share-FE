@@ -11,6 +11,8 @@ footer {
     text-align: center;
     position: relative;
     background-color: lightgrey;
+    bottom: 0;
+
 }
 
 footer a,
@@ -22,6 +24,8 @@ footer a:hover,
 footer a:focus {
     color: #fff;
 }
+
+
 
 /* copyright */
 footer .copyright {

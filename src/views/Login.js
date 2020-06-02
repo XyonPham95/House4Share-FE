@@ -151,15 +151,6 @@ export default function SignInSide(props) {
                 <div className={classes.socialLine}>
                   <Button
                     justIcon
-                    href={`${process.env.REACT_APP_SERVER}/auth/twitter`}
-                    target="_blank"
-                    color="transparent"
-                    onClick={(e) => e.preventDefault()}
-                  >
-                    <i className={"fab fa-twitter fa-2x"} />
-                  </Button>
-                  <Button
-                    justIcon
                     href={`${process.env.REACT_APP_SERVER}/auth/facebook`}
                     target="_blank"
                     color="transparent"
@@ -180,6 +171,15 @@ export default function SignInSide(props) {
                     color="transparent"
                   >
                     <i className={"fab fa-github fa-2x"} />
+                  </Button>
+                  <Button
+                    justIcon
+                    href={`${process.env.REACT_APP_SERVER}/auth/twitter`}
+                    target="_blank"
+                    color="transparent"
+                    onClick={(e) => e.preventDefault()}
+                  >
+                    <i className={"fab fa-twitter fa-2x"} />
                   </Button>
                 </div>
               </CardHeader>

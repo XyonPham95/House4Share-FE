@@ -6,9 +6,11 @@ import "./App.css";
 import NoMore from "./components/NoMore";
 import AuthRoute from "./components/AuthRoute";
 import Login from "./views/Login";
-import Footer from "./views/Footer";
 import SignUp from "./views/SignUp";
-import Footer2 from "./views/Footer2";
+import Profile from "./views/Profile";
+import PostProduct from "./views/PostProduct";
+import ProductPage from "./views/ProductPage";
+import SingleProduct from "./views/SingleProduct";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -25,7 +27,7 @@ function App() {
     const token = localToken || urlToken;
 
     if (!token) return;
-    const res = await fetch(process.env.REACT_APP_SERVER + "/users/me", {
+    const res = await fetch(process.env.REACT_APP_SERVER + "/users/profile", {
       headers: { authorization: `Bearer ${token}` },
     });
     const body = await res.json();
@@ -33,16 +35,31 @@ function App() {
       setUser(body.data);
       localStorage.setItem("token", token);
     } else {
-      setUser(null);
       localStorage.removeItem("token");
     }
   }
-  console.log(user);
+
   return (
     <div>
       <Home user={user} setUser={setUser} />
       <Switch>
         <Route path="/" user={user} exact component={Landing} />
+        <Route path="/products" exact component={ProductPage} />
+        <Route path="/product/:pId" exact component={SingleProduct} />
+        <AuthRoute
+          path="/user/profile"
+          setUser={setUser}
+          user={user}
+          exact
+          component={Profile}
+        />
+        <AuthRoute
+          path="/user/createhouse"
+          setUser={setUser}
+          user={user}
+          exact
+          component={PostProduct}
+        />
         <NoMore
           path="/login"
           user={user}
@@ -52,8 +69,6 @@ function App() {
         />
         <Route path="/register" exact component={SignUp} />
       </Switch>
-      <Footer2 />
-      <Footer />
     </div>
   );
 }
