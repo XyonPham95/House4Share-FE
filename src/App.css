@@ -130,3 +130,7 @@ footer .social-links li {
 .row .twelve {
     width: 100%;
 }
+
+*:focus {
+    outline: none;
+}

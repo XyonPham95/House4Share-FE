@@ -11,7 +11,7 @@ import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import { red } from "@material-ui/core/colors";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
+import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
 import { title } from "../styles/MainStyle";
 import Moment from "react-moment";
 
@@ -75,25 +75,20 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ProductsPage(props) {
   const classes = useStyles();
-  const { cId } = useParams();
+  const { pId } = useParams();
   const [products, setProducts] = useState([]);
   const [totalProducts, setTotalProducts] = useState(null);
-  // const [keyword, setKeyword] = useState("");
-  // const [searching, setSearching] = useState(false);
   // const [sort, setSort] = useState("");
   let [activePage, setActivePage] = useState(1);
-  const history = useHistory();
 
   useEffect(() => {
     getProducts();
   }, []);
-  console.log(props.numProduct);
   const getProducts = async () => {
     const res = await fetch(
       process.env.REACT_APP_SERVER + `/products?page=1&limit=8`
     );
     const body = await res.json();
-    console.log(body);
     setTotalProducts(body.total);
     setProducts(body.data);
   };
@@ -104,6 +99,22 @@ export default function ProductsPage(props) {
     );
     const body = await res.json();
     setProducts(body.data);
+  };
+
+  const deleteProduct = async (id) => {
+    console.log("hfgf");
+    const res = await fetch(process.env.REACT_APP_SERVER + `/products/${id}`, {
+      method: "DELETE",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    });
+    if (res.status === 204) {
+      alert("DELETED");
+      getProducts();
+    } else {
+      alert(`"Cannot delete"`);
+    }
   };
 
   // const sortLowToHigh = async () => {
@@ -138,8 +149,11 @@ export default function ProductsPage(props) {
                   </Avatar>
                 }
                 action={
-                  <IconButton aria-label="settings">
-                    <MoreVertIcon />
+                  <IconButton
+                    aria-label="settings"
+                    onClick={() => deleteProduct(el._id)}
+                  >
+                    <DeleteForeverIcon disableFocusRipple />
                   </IconButton>
                 }
                 title={el.title}
