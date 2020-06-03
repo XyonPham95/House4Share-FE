@@ -91,6 +91,7 @@ export default function ProductsPage(props) {
     const body = await res.json();
     setTotalProducts(body.total);
     setProducts(body.data);
+    console.log(body.data, "=========");
   };
   const handlePageChange = async (pageNumber) => {
     setActivePage(pageNumber);
@@ -99,6 +100,7 @@ export default function ProductsPage(props) {
     );
     const body = await res.json();
     setProducts(body.data);
+
   };
 
   const deleteProduct = async (id) => {
@@ -170,7 +172,7 @@ export default function ProductsPage(props) {
                 </Typography>
               </CardContent>
               <CardActions>
-                <div>Owner: {el.owner.name}</div>
+                <div>Owner: {el.owner && el.owner.name}</div>
                 <div style={{ color: "red" }}> Price: ${el.price}</div>
                 <Link to={`/product/${el._id}`} style={{ cursor: "pointer" }}>
                   {" "}
