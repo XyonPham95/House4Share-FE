@@ -9,8 +9,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
-import Link from "@material-ui/core/Link";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -131,7 +130,7 @@ export default function MenuAppBar(props) {
                     variant="h6"
                     underline="none"
                     className={classes.rightLink}
-                    href="/login/"
+                    to="/login/"
                   >
                     {"Sign In"}
                   </Link>

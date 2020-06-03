@@ -5,7 +5,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
-import Link from "@material-ui/core/Link";
+import { Link } from "react-router-dom";
 import Paper from "@material-ui/core/Paper";
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
@@ -134,12 +134,10 @@ export default function SignInSide(props) {
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
+                <Link variant="body2">Forgot password?</Link>
               </Grid>
               <Grid item>
-                <Link href="/register" variant="body2">
+                <Link to="/register" variant="body2">
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>
@@ -151,7 +149,7 @@ export default function SignInSide(props) {
                 <div className={classes.socialLine}>
                   <Button
                     justIcon
-                    href={`${process.env.REACT_APP_SERVER}/auth/facebook`}
+                    to={`${process.env.REACT_APP_SERVER}/auth/facebook`}
                     target="_blank"
                     color="transparent"
                   >
@@ -159,14 +157,14 @@ export default function SignInSide(props) {
                   </Button>
                   <Button
                     justIcon
-                    href={`${process.env.REACT_APP_SERVER}/auth/google`}
+                    to={`${process.env.REACT_APP_SERVER}/auth/google`}
                     color="transparent"
                   >
                     <i className={"fab fa-google fa-2x"} />
                   </Button>
                   <Button
                     justIcon
-                    href={`${process.env.REACT_APP_SERVER}/auth/github`}
+                    to={`${process.env.REACT_APP_SERVER}/auth/github`}
                     target="_blank"
                     color="transparent"
                   >
@@ -174,7 +172,7 @@ export default function SignInSide(props) {
                   </Button>
                   <Button
                     justIcon
-                    href={`${process.env.REACT_APP_SERVER}/auth/twitter`}
+                    to={`${process.env.REACT_APP_SERVER}/auth/twitter`}
                     target="_blank"
                     color="transparent"
                     onClick={(e) => e.preventDefault()}

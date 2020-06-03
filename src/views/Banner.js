@@ -4,7 +4,7 @@ import { withStyles } from "@material-ui/core/styles";
 import Button from "../components/Button";
 import Typography from "../components/Typography";
 import ProductHeroLayout from "./ProductHeroLayout";
-import Link from "@material-ui/core/Link";
+import { Link } from "react-router-dom";
 
 const backgroundImage =
   "https://cdn.dribbble.com/users/1081269/screenshots/7604658/media/1727594504dd56b2f65d75104273a1cc.jpg";
@@ -58,7 +58,7 @@ function ProductHero(props) {
         size="large"
         className={classes.button}
         component="a"
-        href="/register"
+        to="/register"
       >
         Register
       </Button>
@@ -70,7 +70,7 @@ function ProductHero(props) {
         variant="h6"
         underline="none"
         className={classes.rightLink}
-        href="/login/"
+        to="/login/"
       >
         {"Sign In"}
       </Link>

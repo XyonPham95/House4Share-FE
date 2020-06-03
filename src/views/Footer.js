@@ -48,7 +48,7 @@ export default function Footer(props) {
           <a
             href="https://github.com/XyonPham95"
             className={aClasses}
-            target="/"
+            target="_blank"
           >
             Xyon Pham
           </a>
