@@ -11,11 +11,9 @@ import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import { red } from "@material-ui/core/colors";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import ShareIcon from "@material-ui/icons/Share";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
-import Button from "@material-ui/core/Button";
 import { title } from "../styles/MainStyle";
+import Moment from "react-moment";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -107,23 +105,6 @@ export default function ProductsPage(props) {
     const body = await res.json();
     setProducts(body.data);
   };
-  // const onSearch = async (e) => {
-  //   setSearching(true);
-  //   setKeyword(e.target.value);
-  //   if (!e.target.value) {
-  //     onClearSort();
-  //   } else {
-  //     const res = await fetch(
-  //       process.env.REACT_APP_SERVER +
-  //         `/products/category/${cId}?title=${e.target.value}`
-  //     );
-  //     const body = await res.json();
-  //     if (body.status === "success") {
-  //       setProducts(body.data.products);
-  //       setSearching(false);
-  //     }
-  //   }
-  // };
 
   // const sortLowToHigh = async () => {
   //   setSort("price");
@@ -139,20 +120,6 @@ export default function ProductsPage(props) {
   //   const res = await fetch(
   //     process.env.REACT_APP_SERVER +
   //       `/products/category/${cId}?sort=-price&page=1&limit=8`
-  //   );
-  //   const body = await res.json();
-  //   setProducts(body.data.products);
-  // };
-  // const onClearSort = () => {
-  //   setSort("");
-  //   setActivePage(1);
-  //   getProductByCategory();
-  // };
-  // const sortNewest = async () => {
-  //   setSort("-createdAt");
-  //   const res = await fetch(
-  //     process.env.REACT_APP_SERVER +
-  //       `/products/category/${cId}?sort=-createdAt&page=1&limit=8`
   //   );
   //   const body = await res.json();
   //   setProducts(body.data.products);
@@ -176,7 +143,7 @@ export default function ProductsPage(props) {
                   </IconButton>
                 }
                 title={el.title}
-                subheader={el.createdAt}
+                subheader={<Moment date={el.createdAt} format="DD/MMM/YY" />}
               />
               <CardMedia
                 className={classes.media}

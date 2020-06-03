@@ -28,7 +28,7 @@ export default function SingleProduct(props) {
             <div data-slider-id="1" class="owl-carousel shop-detail-carousel">
               <div>
                 {" "}
-                <img src={product.image} alt="" class="img-fluid" />
+                <img src={product.image} alt="" class="img-fluid height-400" />
               </div>
             </div>
           </div>
@@ -38,21 +38,45 @@ export default function SingleProduct(props) {
                 <p></p>
                 <h4>House details</h4>
                 <p>
-                  White lace top, woven, has a round neck, short sleeves, has
-                  knitted lining attached
+                  Full of basic Furniture enough to live and we can plan to get
+                  more furniture by sharing.
                 </p>
-                <h4>Material & care</h4>
+                <h4>Facilities</h4>
                 <ul>
-                  <li>Polyester</li>
-                  <li>Machine wash</li>
-                </ul>
-                <h4>Size & Fit</h4>
-                <ul>
-                  <li>Regular fit</li>
                   <li>
-                    The model (height 5'8 "and chest 33") is wearing a size S
+                    Internet cover all the house and have enough speed to access
+                    for 4 people (45mbps)
+                  </li>
+                  <li>Kitchen have stove, non-oil fryer.</li>
+                </ul>
+                <h4> Benefits </h4>
+                <ul>
+                  <li>
+                    Near to District 1 for 15 mins, 2 Big University (TDT and
+                    RMIT), 2 Big Mall (Vivo and Crescent), big super Market
+                    Lotte Mart and more{" "}
+                  </li>
+                  <li>
+                    Live near Phu My Hung have a variety of food culture like
+                    Korean, Japanese, Chinese, Thai, Indian and also Vietnamese
+                    food.
                   </li>
                 </ul>
+                <h4> Looking For: </h4>
+                <ul>
+                  <li>
+                    A partner which same age with owner ({owner.dob}) or higher
+                    and less around 2 years. Same Gender ({owner.gender}) would
+                    be great.
+                  </li>
+                  <li>
+                    An optimistic who like to play guitar or any music
+                    instrument. Because {owner.name} work all the week and want
+                    to have a nice weekend with partner or by themself.
+                    Especially do not like noisy people.
+                  </li>
+                </ul>
+                <h4> Contact: </h4>
                 <p
                   class="owner"
                   style={{ display: "flex", justifyContent: "space-around" }}
@@ -72,7 +96,7 @@ export default function SingleProduct(props) {
                 </p>
 
                 <p class="price" style={{ position: "center" }}>
-                  Price: ${product.price}
+                  <h4> Price: ${product.price} / month</h4>
                 </p>
               </form>
             </div>
