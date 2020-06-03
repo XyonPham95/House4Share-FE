@@ -150,32 +150,28 @@ export default function SignInSide(props) {
                   <Button
                     justIcon
                     to={`${process.env.REACT_APP_SERVER}/auth/facebook`}
-                    target="_blank"
                     color="transparent"
                   >
                     <i className={"fab fa-facebook fa-2x"} />
                   </Button>
                   <Button
                     justIcon
-                    to={`${process.env.REACT_APP_SERVER}/auth/google`}
+                    href={`${process.env.REACT_APP_SERVER}/auth/google`}
                     color="transparent"
                   >
                     <i className={"fab fa-google fa-2x"} />
                   </Button>
                   <Button
                     justIcon
-                    to={`${process.env.REACT_APP_SERVER}/auth/github`}
-                    target="_blank"
+                    href={`${process.env.REACT_APP_SERVER}/auth/github`}
                     color="transparent"
                   >
                     <i className={"fab fa-github fa-2x"} />
                   </Button>
                   <Button
                     justIcon
-                    to={`${process.env.REACT_APP_SERVER}/auth/twitter`}
-                    target="_blank"
+                    href={`${process.env.REACT_APP_SERVER}/auth/twitter`}
                     color="transparent"
-                    onClick={(e) => e.preventDefault()}
                   >
                     <i className={"fab fa-twitter fa-2x"} />
                   </Button>
