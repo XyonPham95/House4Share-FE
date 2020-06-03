@@ -149,7 +149,7 @@ export default function SignInSide(props) {
                 <div className={classes.socialLine}>
                   <Button
                     justIcon
-                    to={`${process.env.REACT_APP_SERVER}/auth/facebook`}
+                    href={`${process.env.REACT_APP_SERVER}/auth/facebook`}
                     color="transparent"
                   >
                     <i className={"fab fa-facebook fa-2x"} />
