@@ -94,6 +94,7 @@ export default function MenuAppBar(props) {
             <MenuIcon />
           </IconButton>
           <Typography
+            style={{ cursor: "pointer" }}
             color="inherit"
             variant="h6"
             className={classes.title}
@@ -104,6 +105,7 @@ export default function MenuAppBar(props) {
           </Typography>
 
           <Typography
+            style={{ cursor: "pointer" }}
             color="inherit"
             variant="h6"
             className={classes.title}

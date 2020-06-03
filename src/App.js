@@ -46,6 +46,7 @@ function App() {
         <Route path="/" user={user} exact component={Landing} />
         <Route path="/products" exact component={ProductPage} />
         <Route path="/product/:pId" exact component={SingleProduct} />
+      
         <AuthRoute
           path="/user/profile"
           setUser={setUser}

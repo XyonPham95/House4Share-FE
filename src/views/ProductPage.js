@@ -158,14 +158,21 @@ export default function ProductsPage(props) {
               <CardActions>
                 <div>Owner: {el.owner.name}</div>
                 <div style={{ color: "red" }}> Price: ${el.price}</div>
-                <Link to={`/product/${el._id}`}> View detail </Link>
+                <Link to={`/product/${el._id}`} style={{ cursor: "pointer" }}>
+                  {" "}
+                  View detail{" "}
+                </Link>
               </CardActions>
             </Card>
           </div>
         );
       })
     ) : (
-      <div>`loading</div>
+      <div class="d-flex justify-content-center">
+        <div class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
     );
 
   return (

@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
+import { Form, Button } from "react-bootstrap";
+import Moment from "react-moment";
 
 export default function SingleProduct(props) {
   const { pId } = useParams();
   const [product, setProduct] = useState({});
   const [owner, setOwner] = useState({});
   const [reRender, setReRender] = useState(false);
+  const [getComment, setgetComment] = useState({});
 
   useEffect(() => {
     getProduct();
@@ -19,6 +22,32 @@ export default function SingleProduct(props) {
     console.log(body.data);
   };
 
+  const postCommnet = async (e) => {
+    e.preventDefault();
+    const res = await fetch(
+      process.env.REACT_APP_SERVER + `/products/${pId}/reviews`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+        body: JSON.stringify(getComment),
+      }
+    );
+    if (res.status === 201) {
+      const body = await res.json();
+      setProduct(body.data);
+      setOwner(body.data.owner);
+    } else {
+      alert(`"Cannot comment"`);
+    }
+  };
+
+  const handleComment = (e) => {
+    setgetComment({ ...getComment, [e.target.name]: e.target.value });
+  };
+
   return (
     <div>
       <div class="col-lg-12">
@@ -29,6 +58,32 @@ export default function SingleProduct(props) {
               <div>
                 {" "}
                 <img src={product.image} alt="" class="img-fluid height-400" />
+                <div>
+                  {product.comments && product.comments.length > 0
+                    ? product.comments.map((el) => {
+                        console.log(el);
+                        return (
+                          <div
+                            className="row"
+                            style={{
+                              border: "1px solid grey",
+                              width: "50vh",
+                              display: "flex",
+                              margin: "25px",
+                            }}
+                          >
+                            <div className="col-md-3">{el.user.name}</div>
+                            <div className="col-md-9">
+                              <div className="row">
+                                {<Moment date={el.date} format="DD/MMM/YY" />}
+                              </div>
+                              <div className="row">{el.review}</div>
+                            </div>
+                          </div>
+                        );
+                      })
+                    : null}
+                </div>
               </div>
             </div>
           </div>
@@ -98,6 +153,24 @@ export default function SingleProduct(props) {
                 <p class="price" style={{ position: "center" }}>
                   <h4> Price: ${product.price} / month</h4>
                 </p>
+                <Form
+                  onChange={handleComment}
+                  onSubmit={postCommnet}
+                  style={{ width: "100%" }}
+                >
+                  <Form.Group controlId="exampleForm.ControlTextarea1">
+                    <Form.Label>Leave your Comment</Form.Label>
+                    <Form.Control as="textarea" rows="3" name="review" />
+                  </Form.Group>
+                  <Button
+                    type="submit"
+                    variant="danger"
+                    style={{ right: "100px" }}
+                  >
+                    {" "}
+                    submit{" "}
+                  </Button>
+                </Form>
               </form>
             </div>
           </div>
