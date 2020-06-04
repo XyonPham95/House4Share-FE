@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, useHistory } from "react-router-dom";
 import Home from "./views/Home";
 import Landing from "./views/Landing";
 import "./App.css";
@@ -14,6 +14,7 @@ import SingleProduct from "./views/SingleProduct";
 
 function App() {
   const [user, setUser] = useState(null);
+  const history = useHistory();
 
   useEffect(() => {
     checkUser();
@@ -34,6 +35,9 @@ function App() {
     if (body.status === "success") {
       setUser(body.data);
       localStorage.setItem("token", token);
+      if (urlToken) {
+        history.push("/profile");
+      }
     } else {
       localStorage.removeItem("token");
     }
@@ -74,7 +78,13 @@ function App() {
           exact
           component={Login}
         />
-        <Route path="/register" exact component={SignUp} />
+        <NoMore
+          path="/register"
+          user={user}
+          setUser={setUser}
+          exact
+          component={SignUp}
+        />
       </Switch>
     </div>
   );

@@ -55,8 +55,6 @@ const useStyles = makeStyles((theme) => ({
     paddingRight: "15px",
     paddingLeft: "15px",
     flexBasis: "auto",
-    marginRight: "-15px",
-    marginLeft: "-15px",
   },
   title: {
     ...title,
@@ -69,6 +67,10 @@ const useStyles = makeStyles((theme) => ({
   },
   section: {
     paddingBottom: "20px",
+  },
+  GridItem: {
+    display: "flex",
+    justifyContent: "center",
   },
 }));
 
