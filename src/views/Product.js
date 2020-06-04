@@ -289,7 +289,7 @@ export default function RecipeReviewCard() {
           </GridItem>
         </GridContainer>
 
-        <GridContainer justifyContent="center">
+        <GridContainer style={{ display: "flex", justifyContent: "center" }}>
           <GridItem xs={12} sm={3}>
             <Card className={classes.root}>
               <CardHeader
