@@ -37,7 +37,6 @@ export default function PostProductPage() {
     if (res.ok) {
       const data = await res.json();
       const dataProduct = { ...product, image: data.data.link };
-      console.log(dataProduct);
       if (data.success) {
         const res = await fetch(process.env.REACT_APP_SERVER + "/products", {
           method: "POST",
@@ -48,7 +47,6 @@ export default function PostProductPage() {
           body: JSON.stringify(dataProduct),
         });
         const body = await res.json();
-        console.log(body);
         if (res.status === 201) {
           Swal.fire({
             title: "Success!",
@@ -59,7 +57,7 @@ export default function PostProductPage() {
         } else {
           Swal.fire({
             title: "Error!",
-            text: "Something went wrong",
+            text: `${body.error}`,
             icon: "error",
             confirmButtonText: "Cool",
           });

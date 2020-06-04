@@ -14,7 +14,7 @@ import { red } from "@material-ui/core/colors";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
 import { title } from "../styles/MainStyle";
 import Moment from "react-moment";
-import Swal from "sweetalert2"
+import Swal from "sweetalert2";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -78,13 +78,16 @@ export default function ProductsPage(props) {
   const classes = useStyles();
   const { cId } = useParams();
   const [products, setProducts] = useState([]);
+  const [categorys, setCategorys] = useState([]);
   const [totalProducts, setTotalProducts] = useState(null);
   const [sort, setSort] = useState("");
   let [activePage, setActivePage] = useState(1);
 
   useEffect(() => {
     getProducts();
+    getCategory();
   }, []);
+
   const getProducts = async () => {
     const res = await fetch(
       process.env.REACT_APP_SERVER + `/products?page=1&limit=8`
@@ -93,6 +96,13 @@ export default function ProductsPage(props) {
     setTotalProducts(body.total);
     setProducts(body.data);
   };
+
+  const getCategory = async () => {
+    const res = await fetch(process.env.REACT_APP_SERVER + `/category`);
+    const body = await res.json();
+    setCategorys(body.data);
+  };
+
   const handlePageChange = async (pageNumber) => {
     setActivePage(pageNumber);
     const res = await fetch(
@@ -124,8 +134,21 @@ export default function ProductsPage(props) {
         text: "Cannot Delete",
         icon: "error",
         confirmButtonText: "Cool",
-      });;
+      });
     }
+  };
+
+  const onClear = async () => {
+    getProducts();
+  };
+
+  const onFilterCat = async (cId) => {
+    const res = await fetch(
+      process.env.REACT_APP_SERVER + `/products?category=${cId}&page=1&limit=8`
+    );
+    const body = await res.json();
+    setProducts(body.data);
+    setTotalProducts(body.total);
   };
 
   const sortLowToHigh = async () => {
@@ -135,7 +158,6 @@ export default function ProductsPage(props) {
     );
     const body = await res.json();
     setProducts(body.data);
-    console.log(body);
   };
 
   const sortHighToLow = async () => {
@@ -146,6 +168,31 @@ export default function ProductsPage(props) {
     const body = await res.json();
     setProducts(body.data);
   };
+
+  let htmlCategory =
+    categorys.length !== 0 ? (
+      categorys.map((el) => {
+        return (
+          <div>
+            <button
+              style={{ color: "#B91319", backgroundColor: "white" }}
+              className="btn btn-outline my-sm-0"
+              type="button"
+              onClick={() => onFilterCat(el.id)}
+            >
+              {" "}
+              Filter {el.category} Only
+            </button>
+          </div>
+        );
+      })
+    ) : (
+      <div class="d-flex justify-content-center">
+        <div class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+    );
 
   let htmlProducts =
     products.length !== 0 ? (
@@ -206,7 +253,7 @@ export default function ProductsPage(props) {
         className="d-flex justify-content-around"
         style={{ padding: "25px" }}
       >
-        <form className="form-inline w-50 ml-5">
+        <form className="form-inline w-60 ml-5">
           <button
             style={{ color: "#B91319", backgroundColor: "white" }}
             className="btn btn-outline my-sm-0"
@@ -224,6 +271,16 @@ export default function ProductsPage(props) {
           >
             {" "}
             High to Low Price
+          </button>
+          {htmlCategory}
+          <button
+            style={{ color: "#B91319", backgroundColor: "white" }}
+            className="btn btn-outline my-sm-0"
+            type="button"
+            onClick={onClear}
+          >
+            {" "}
+            Reset
           </button>
         </form>
         <h4 className="mr-3 my-2">Total: {totalProducts}</h4>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 import Moment from "react-moment";
-import Swal from "sweetalert2"
+import Swal from "sweetalert2";
 
 export default function SingleProduct(props) {
   const { pId } = useParams();
@@ -20,7 +20,6 @@ export default function SingleProduct(props) {
     const body = await res.json();
     setProduct(body.data);
     setOwner(body.data.owner);
-    console.log(body.data);
   };
 
   const postCommnet = async (e) => {
@@ -73,7 +72,6 @@ export default function SingleProduct(props) {
                 <div>
                   {product.comments && product.comments.length > 0
                     ? product.comments.map((el) => {
-                        console.log(el);
                         return (
                           <div
                             className="row"
