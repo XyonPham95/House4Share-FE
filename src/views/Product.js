@@ -140,7 +140,11 @@ export default function RecipeReviewCard() {
               </CardActions>
             </Card>
           </GridItem>
-          <GridItem xs={12} sm={3}>
+          <GridItem
+            xs={12}
+            sm={3}
+            style={{ display: "flex", justifyContent: "center" }}
+          >
             <Card className={classes.root}>
               <CardHeader
                 avatar={
@@ -189,7 +193,11 @@ export default function RecipeReviewCard() {
               </CardActions>
             </Card>
           </GridItem>
-          <GridItem xs={12} sm={3}>
+          <GridItem
+            xs={12}
+            sm={3}
+            style={{ display: "flex", justifyContent: "center" }}
+          >
             <Card className={classes.root}>
               <CardHeader
                 avatar={
@@ -238,7 +246,11 @@ export default function RecipeReviewCard() {
               </CardActions>
             </Card>
           </GridItem>
-          <GridItem xs={12} sm={3}>
+          <GridItem
+            xs={12}
+            sm={3}
+            style={{ display: "flex", justifyContent: "center" }}
+          >
             <Card className={classes.root}>
               <CardHeader
                 avatar={
@@ -290,7 +302,11 @@ export default function RecipeReviewCard() {
         </GridContainer>
 
         <GridContainer style={{ display: "flex", justifyContent: "center" }}>
-          <GridItem xs={12} sm={3}>
+          <GridItem
+            xs={12}
+            sm={3}
+            style={{ display: "flex", justifyContent: "center" }}
+          >
             <Card className={classes.root}>
               <CardHeader
                 avatar={
@@ -339,7 +355,11 @@ export default function RecipeReviewCard() {
               </CardActions>
             </Card>
           </GridItem>
-          <GridItem xs={12} sm={3}>
+          <GridItem
+            xs={12}
+            sm={3}
+            style={{ display: "flex", justifyContent: "center" }}
+          >
             <Card className={classes.root}>
               <CardHeader
                 avatar={
@@ -388,7 +408,11 @@ export default function RecipeReviewCard() {
               </CardActions>
             </Card>
           </GridItem>
-          <GridItem xs={12} sm={3}>
+          <GridItem
+            xs={12}
+            sm={3}
+            style={{ display: "flex", justifyContent: "center" }}
+          >
             <Card className={classes.root}>
               <CardHeader
                 avatar={
@@ -437,7 +461,11 @@ export default function RecipeReviewCard() {
               </CardActions>
             </Card>
           </GridItem>
-          <GridItem xs={12} sm={3}>
+          <GridItem
+            xs={12}
+            sm={3}
+            style={{ display: "flex", justifyContent: "center" }}
+          >
             <Card className={classes.root}>
               <CardHeader
                 avatar={
