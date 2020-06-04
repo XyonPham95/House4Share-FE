@@ -284,7 +284,7 @@ export default function RecipeReviewCard() {
         </GridContainer>
 
         <GridContainer justify="center">
-          <GridItem xs={6} sm={3} md={4}>
+          <GridItem xs={6} sm={3}>
             <Card className={classes.root}>
               <CardHeader
                 avatar={
@@ -332,7 +332,8 @@ export default function RecipeReviewCard() {
                 </IconButton>
               </CardActions>
             </Card>
-
+            </GridItem>
+            <GridItem xs={6} sm={3}>
             <Card className={classes.root}>
               <CardHeader
                 avatar={
@@ -380,7 +381,8 @@ export default function RecipeReviewCard() {
                 </IconButton>
               </CardActions>
             </Card>
-
+            </GridItem>
+            <GridItem xs={6} sm={3}>
             <Card className={classes.root}>
               <CardHeader
                 avatar={
@@ -428,6 +430,8 @@ export default function RecipeReviewCard() {
                 </IconButton>
               </CardActions>
             </Card>
+            </GridItem>
+            <GridItem xs={6} sm={3}>
             <Card className={classes.root}>
               <CardHeader
                 avatar={

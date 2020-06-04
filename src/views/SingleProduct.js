@@ -37,6 +37,7 @@ export default function SingleProduct(props) {
     );
     if (res.status === 201) {
       const body = await res.json();
+      console.log(body)
       setProduct(body.data);
       setOwner(body.data.owner);
       Swal.fire({
