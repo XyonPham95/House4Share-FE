@@ -199,7 +199,7 @@ export default function ProductsPage(props) {
     products.length !== 0 ? (
       products.map((el) => {
         return (
-          <div className={classes.root} xs={6} sm={3}>
+          <div className={classes.root} xs={12} sm={3}>
             <Card>
               <CardHeader
                 avatar={
