@@ -84,8 +84,8 @@ export default function RecipeReviewCard() {
     <div className={classes.section}>
       <h2 className={classes.title}>Sample House4Share</h2>
       <div>
-        <GridContainer justify="center">
-          <GridItem xs={12} sm={12} md={12}>
+        <GridContainer>
+          <GridItem xs={6} sm={3}>
             <Card className={classes.root}>
               <CardHeader
                 avatar={
@@ -133,7 +133,8 @@ export default function RecipeReviewCard() {
                 </IconButton>
               </CardActions>
             </Card>
-
+          </GridItem>
+          <GridItem xs={6} sm={3}>
             <Card className={classes.root}>
               <CardHeader
                 avatar={
@@ -181,7 +182,8 @@ export default function RecipeReviewCard() {
                 </IconButton>
               </CardActions>
             </Card>
-
+          </GridItem>
+          <GridItem xs={6} sm={3}>
             <Card className={classes.root}>
               <CardHeader
                 avatar={
@@ -229,6 +231,8 @@ export default function RecipeReviewCard() {
                 </IconButton>
               </CardActions>
             </Card>
+          </GridItem>
+          <GridItem xs={6} sm={3}>
             <Card className={classes.root}>
               <CardHeader
                 avatar={
@@ -278,8 +282,9 @@ export default function RecipeReviewCard() {
             </Card>
           </GridItem>
         </GridContainer>
+
         <GridContainer justify="center">
-          <GridItem xs={12} sm={12} md={12}>
+          <GridItem xs={6} sm={3} md={4}>
             <Card className={classes.root}>
               <CardHeader
                 avatar={

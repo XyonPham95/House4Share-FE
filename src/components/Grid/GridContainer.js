@@ -16,6 +16,7 @@ const useStyles = makeStyles(styles);
 export default function GridContainer(props) {
   const classes = useStyles();
   const { children, className, ...rest } = props;
+  console.log(children);
   return (
     <Grid container {...rest} className={classes.grid + " " + className}>
       {children}
