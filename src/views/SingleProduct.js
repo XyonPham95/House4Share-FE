@@ -64,7 +64,7 @@ export default function SingleProduct(props) {
       <div class="col-lg-12">
         <p class="lead"></p>
         <div id="productMain" class="row">
-          <div class="col-sm-6">
+          <div class="col-sm-6 h-100 d-flex align-items-center justify-content-center">
             <div data-slider-id="1" class="owl-carousel shop-detail-carousel">
               <div>
                 {" "}
@@ -97,7 +97,7 @@ export default function SingleProduct(props) {
               </div>
             </div>
           </div>
-          <div class="col-sm-6">
+          <div class="col-sm-6 h-100 d-flex align-items-center justify-content-start">
             <div class="box">
               <form>
                 <p></p>
