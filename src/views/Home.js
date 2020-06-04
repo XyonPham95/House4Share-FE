@@ -106,7 +106,7 @@ export default function MenuAppBar(props) {
             <img src={homeIcon} alt="Logo" />
           </IconButton>
           <Typography
-            style={{ cursor: "pointer" }}
+            style={{ cursor: "pointer", fontSize:"30px" }}
             color="inherit"
             variant="h6"
             className={classes.title}
@@ -117,7 +117,7 @@ export default function MenuAppBar(props) {
           </Typography>
 
           <Typography
-            style={{ cursor: "pointer" }}
+            style={{ cursor: "pointer", fontSize:"30px" }}
             color="inherit"
             variant="h6"
             className={classes.title}
@@ -136,19 +136,20 @@ export default function MenuAppBar(props) {
                 onClick={handleMenu}
                 color="inherit"
               >
-                <AccountCircle />{" "}
+                <AccountCircle style={{fontSize: "2rem"}} />{" "}
                 {!props.user ? (
                   <Link
                     color="inherit"
                     variant="h6"
                     underline="none"
+                    style={{fontSize:"25px"}}
                     className={classes.rightLink}
                     to="/login/"
                   >
                     {"Sign In"}
                   </Link>
                 ) : (
-                  <div>
+                  <div style={{fontSize:"25px"}}>
                     {props.user && props.user.name ? props.user.name : ""}
                   </div>
                 )}
