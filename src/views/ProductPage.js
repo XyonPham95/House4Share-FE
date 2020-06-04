@@ -199,7 +199,11 @@ export default function ProductsPage(props) {
     products.length !== 0 ? (
       products.map((el) => {
         return (
-          <GridItem xs={12} sm={3}>
+          <GridItem
+            xs={12}
+            sm={3}
+            style={{ display: "flex", justifyContent: "center" }}
+          >
             <Card className={classes.root}>
               <CardHeader
                 avatar={
