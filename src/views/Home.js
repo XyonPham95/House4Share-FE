@@ -47,7 +47,7 @@ export default function MenuAppBar(props) {
   };
 
   const home = () => {
-    window.location = "/";
+    history.push("/");
   };
 
   const profile = () => {
@@ -99,7 +99,7 @@ export default function MenuAppBar(props) {
           <IconButton
             color="inherit"
             aria-label="open drawer"
-            onClick={handleDrawerOpen}
+            onClick={home}
             edge="start"
             className={clsx(classes.menuButton, open && classes.hide)}
           >
