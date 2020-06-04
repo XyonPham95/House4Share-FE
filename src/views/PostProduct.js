@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import Button from "@material-ui/core/Button";
 import { Label, Input } from "reactstrap";
 import Swal from "sweetalert2";
+import { useHistory } from "react-router-dom";
 
 export default function PostProductPage() {
   const [categorys, setCategory] = useState([]);
   const [product, setProduct] = useState({});
+  const history = useHistory();
   useEffect(() => {
     getCategory();
   }, []);
@@ -54,6 +56,7 @@ export default function PostProductPage() {
             icon: "succes",
             confirmButtonText: "Cool",
           });
+          history.push("/");
         } else {
           Swal.fire({
             title: "Error!",

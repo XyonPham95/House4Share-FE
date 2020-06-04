@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 import Moment from "react-moment";
 import Swal from "sweetalert2";
@@ -8,7 +8,6 @@ export default function SingleProduct(props) {
   const { pId } = useParams();
   const [product, setProduct] = useState({});
   const [owner, setOwner] = useState({});
-  const [reRender, setReRender] = useState(false);
   const [getComment, setgetComment] = useState({});
 
   useEffect(() => {
@@ -37,7 +36,7 @@ export default function SingleProduct(props) {
     );
     if (res.status === 201) {
       const body = await res.json();
-      console.log(body)
+      console.log(body);
       setProduct(body.data);
       setOwner(body.data.owner);
       Swal.fire({

@@ -19,6 +19,7 @@ import Swal from "sweetalert2";
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
+    maxHeight: 400,
     display: "inline-block",
     position: "relative",
     width: "100%",
@@ -198,8 +199,8 @@ export default function ProductsPage(props) {
     products.length !== 0 ? (
       products.map((el) => {
         return (
-          <div>
-            <Card className={classes.root}>
+          <div className={classes.root} xs={6} sm={3}>
+            <Card>
               <CardHeader
                 avatar={
                   <Avatar aria-label="recipe" className={classes.avatar}>
@@ -280,7 +281,7 @@ export default function ProductsPage(props) {
             onClick={onClear}
           >
             {" "}
-            Reset
+            All
           </button>
         </form>
         <h4 className="mr-3 my-2">Total: {totalProducts}</h4>
