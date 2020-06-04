@@ -108,9 +108,10 @@ export default function RecipeReviewCard() {
               />
               <CardContent>
                 <Typography variant="body2" color="textSecondary" component="p">
-                  This impressive paella is a perfect party dish and a fun meal
-                  to cook together with your guests. Add 1 cup of frozen peas
-                  along with the mussels, if you like.
+                  Thank you for visting House4Share. This website is making for
+                  people (Mostly university student) around distric 7. This is
+                  just an product sample please click HOUSES on the top left to
+                  see all the houses. Again thanks for support House4Share.
                 </Typography>
               </CardContent>
               <CardActions disableSpacing>
@@ -155,9 +156,10 @@ export default function RecipeReviewCard() {
               />
               <CardContent>
                 <Typography variant="body2" color="textSecondary" component="p">
-                  This impressive paella is a perfect party dish and a fun meal
-                  to cook together with your guests. Add 1 cup of frozen peas
-                  along with the mussels, if you like.
+                  Thank you for visting House4Share. This website is making for
+                  people (Mostly university student) around distric 7. This is
+                  just an product sample please click HOUSES on the top left to
+                  see all the houses. Again thanks for support House4Share.
                 </Typography>
               </CardContent>
               <CardActions disableSpacing>
@@ -202,9 +204,10 @@ export default function RecipeReviewCard() {
               />
               <CardContent>
                 <Typography variant="body2" color="textSecondary" component="p">
-                  This impressive paella is a perfect party dish and a fun meal
-                  to cook together with your guests. Add 1 cup of frozen peas
-                  along with the mussels, if you like.
+                  Thank you for visting House4Share. This website is making for
+                  people (Mostly university student) around distric 7. This is
+                  just an product sample please click HOUSES on the top left to
+                  see all the houses. Again thanks for support House4Share.
                 </Typography>
               </CardContent>
               <CardActions disableSpacing>
@@ -248,9 +251,10 @@ export default function RecipeReviewCard() {
               />
               <CardContent>
                 <Typography variant="body2" color="textSecondary" component="p">
-                  This impressive paella is a perfect party dish and a fun meal
-                  to cook together with your guests. Add 1 cup of frozen peas
-                  along with the mussels, if you like.
+                  Thank you for visting House4Share. This website is making for
+                  people (Mostly university student) around distric 7. This is
+                  just an product sample please click HOUSES on the top left to
+                  see all the houses. Again thanks for support House4Share.
                 </Typography>
               </CardContent>
               <CardActions disableSpacing>
@@ -298,9 +302,10 @@ export default function RecipeReviewCard() {
               />
               <CardContent>
                 <Typography variant="body2" color="textSecondary" component="p">
-                  This impressive paella is a perfect party dish and a fun meal
-                  to cook together with your guests. Add 1 cup of frozen peas
-                  along with the mussels, if you like.
+                  Thank you for visting House4Share. This website is making for
+                  people (Mostly university student) around distric 7. This is
+                  just an product sample please click HOUSES on the top left to
+                  see all the houses. Again thanks for support House4Share.
                 </Typography>
               </CardContent>
               <CardActions disableSpacing>
@@ -345,9 +350,10 @@ export default function RecipeReviewCard() {
               />
               <CardContent>
                 <Typography variant="body2" color="textSecondary" component="p">
-                  This impressive paella is a perfect party dish and a fun meal
-                  to cook together with your guests. Add 1 cup of frozen peas
-                  along with the mussels, if you like.
+                  Thank you for visting House4Share. This website is making for
+                  people (Mostly university student) around distric 7. This is
+                  just an product sample please click HOUSES on the top left to
+                  see all the houses. Again thanks for support House4Share.
                 </Typography>
               </CardContent>
               <CardActions disableSpacing>
@@ -392,9 +398,10 @@ export default function RecipeReviewCard() {
               />
               <CardContent>
                 <Typography variant="body2" color="textSecondary" component="p">
-                  This impressive paella is a perfect party dish and a fun meal
-                  to cook together with your guests. Add 1 cup of frozen peas
-                  along with the mussels, if you like.
+                  Thank you for visting House4Share. This website is making for
+                  people (Mostly university student) around distric 7. This is
+                  just an product sample please click HOUSES on the top left to
+                  see all the houses. Again thanks for support House4Share.
                 </Typography>
               </CardContent>
               <CardActions disableSpacing>
@@ -438,9 +445,10 @@ export default function RecipeReviewCard() {
               />
               <CardContent>
                 <Typography variant="body2" color="textSecondary" component="p">
-                  This impressive paella is a perfect party dish and a fun meal
-                  to cook together with your guests. Add 1 cup of frozen peas
-                  along with the mussels, if you like.
+                  Thank you for visting House4Share. This website is making for
+                  people (Mostly university student) around distric 7. This is
+                  just an product sample please click HOUSES on the top left to
+                  see all the houses. Again thanks for support House4Share.
                 </Typography>
               </CardContent>
               <CardActions disableSpacing>
