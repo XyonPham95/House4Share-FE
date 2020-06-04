@@ -48,7 +48,13 @@ function App() {
       <Home user={user} setUser={setUser} />
       <Switch>
         <Route path="/" user={user} exact component={Landing} />
-        <Route path="/products" exact component={ProductPage} />
+        <Route
+          path="/products"
+          user={user}
+          setUser={setUser}
+          exact
+          render={(props) => <ProductPage user={user} {...props} />}
+        />
         <Route
           path="/product/:pId"
           user={user}

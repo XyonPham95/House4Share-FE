@@ -96,6 +96,7 @@ export default function ProductsPage(props) {
     const body = await res.json();
     setTotalProducts(body.total);
     setProducts(body.data);
+    console.log(body.data);
   };
 
   const getCategory = async () => {
@@ -216,7 +217,12 @@ export default function ProductsPage(props) {
                     aria-label="settings"
                     onClick={() => deleteProduct(el._id)}
                   >
-                    <DeleteForeverIcon disableFocusRipple />
+                    {(props.user && props.user.id) ===
+                    (el.owner && el.owner.id) ? (
+                      <DeleteForeverIcon disableFocusRipple />
+                    ) : (
+                      ""
+                    )}
                   </IconButton>
                 }
                 title={el.title}
@@ -251,7 +257,7 @@ export default function ProductsPage(props) {
         </div>
       </div>
     );
-
+  console.log(props.user);
   return (
     <div>
       <div
