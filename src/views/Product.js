@@ -86,8 +86,12 @@ export default function RecipeReviewCard() {
     <div className={classes.section}>
       <h2 className={classes.title}>Sample House4Share</h2>
       <div>
-        <GridContainer justifyContent="center">
-          <GridItem xs={12} sm={3}>
+        <GridContainer style={{ display: "flex", justifyContent: "center" }}>
+          <GridItem
+            xs={12}
+            sm={3}
+            style={{ display: "flex", justifyContent: "center" }}
+          >
             <Card className={classes.root}>
               <CardHeader
                 avatar={

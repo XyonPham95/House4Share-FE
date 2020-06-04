@@ -199,9 +199,8 @@ export default function ProductsPage(props) {
     products.length !== 0 ? (
       products.map((el) => {
         return (
-          <GridContainer justifyContent="center">
           <GridItem xs={12} sm={3}>
-          <Card className={classes.root}>
+            <Card className={classes.root}>
               <CardHeader
                 avatar={
                   <Avatar aria-label="recipe" className={classes.avatar}>
@@ -239,7 +238,6 @@ export default function ProductsPage(props) {
               </CardActions>
             </Card>
           </GridItem>
-          </GridContainer>
         );
       })
     ) : (
