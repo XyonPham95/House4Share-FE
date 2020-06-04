@@ -36,7 +36,7 @@ function App() {
       setUser(body.data);
       localStorage.setItem("token", token);
       if (urlToken) {
-        history.push("/profile");
+        history.push("/user/profile");
       }
     } else {
       localStorage.removeItem("token");

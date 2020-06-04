@@ -7,6 +7,8 @@ import CardHeader from "@material-ui/core/CardHeader";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
+import GridContainer from "../components/Grid/GridContainer";
+import GridItem from "../components/Grid/GridItem";
 import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
@@ -54,8 +56,6 @@ const useStyles = makeStyles((theme) => ({
     paddingRight: "15px",
     paddingLeft: "15px",
     flexBasis: "auto",
-    marginRight: "-15px",
-    marginLeft: "-15px",
   },
   title: {
     ...title,
@@ -199,8 +199,9 @@ export default function ProductsPage(props) {
     products.length !== 0 ? (
       products.map((el) => {
         return (
-          <div className={classes.root} xs={12} sm={3}>
-            <Card>
+          <GridContainer justifyContent="center">
+          <GridItem xs={12} sm={3}>
+          <Card className={classes.root}>
               <CardHeader
                 avatar={
                   <Avatar aria-label="recipe" className={classes.avatar}>
@@ -237,7 +238,8 @@ export default function ProductsPage(props) {
                 </Link>
               </CardActions>
             </Card>
-          </div>
+          </GridItem>
+          </GridContainer>
         );
       })
     ) : (
