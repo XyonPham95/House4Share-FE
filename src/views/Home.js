@@ -11,6 +11,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import { useHistory, Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import homeIcon from "../homeIcon.png";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -102,7 +103,7 @@ export default function MenuAppBar(props) {
             edge="start"
             className={clsx(classes.menuButton, open && classes.hide)}
           >
-            <MenuIcon />
+            <img src={homeIcon} alt="Logo" />
           </IconButton>
           <Typography
             style={{ cursor: "pointer" }}
