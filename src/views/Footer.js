@@ -5,6 +5,7 @@ import { List, ListItem } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Favorite from "@material-ui/icons/Favorite";
 import styles from "../styles/FooterStyle";
+import { CircleArrow as ScrollUpButton } from "react-scroll-up-button";
 
 const useStyles = makeStyles(styles);
 
@@ -54,6 +55,7 @@ export default function Footer(props) {
           </a>
         </div>
       </div>
+      <ScrollUpButton />
     </footer>
   );
 }

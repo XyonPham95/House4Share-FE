@@ -12,6 +12,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { useHistory, Link } from "react-router-dom";
+import Swal from "sweetalert2/dist/sweetalert2.js";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -54,10 +55,20 @@ export default function SignUp() {
     });
     const body = await res.json();
     if (res.status === 201) {
-      alert("Register successfully, go to login");
+      Swal.fire({
+        title: "Succes Sign Up!",
+        text: "Go back to Sign In",
+        icon: "success",
+        confirmButtonText: "Cool",
+      });
       history.push("/login");
     } else {
-      alert(`${body.error}`);
+      Swal.fire({
+        title: "Error!",
+        text: `${body.error}`,
+        icon: "error",
+        confirmButtonText: "Cool",
+      });
     }
   };
 

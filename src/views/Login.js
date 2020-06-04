@@ -15,6 +15,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import image from "../img/bg7.jpg";
 import CardHeader from "../components/CardHeader";
 import { useHistory } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -71,8 +72,19 @@ export default function SignInSide(props) {
       localStorage.setItem("token", body.data.jsonToken);
       props.setUser(body.data.user);
       history.push("/");
+      Swal.fire({
+        title: "Succes!",
+        text: "Login Success",
+        icon: "success",
+        confirmButtonText: "Cool",
+      });
     } else {
-      alert(`${body.error}`);
+      Swal.fire({
+        title: "Error!",
+        text: `${body.error}`,
+        icon: "error",
+        confirmButtonText: "Try Again",
+      });
     }
   };
 

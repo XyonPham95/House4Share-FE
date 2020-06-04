@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, Link, useHistory } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import Pagination from "react-js-pagination";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
@@ -14,6 +14,7 @@ import { red } from "@material-ui/core/colors";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
 import { title } from "../styles/MainStyle";
 import Moment from "react-moment";
+import Swal from "sweetalert2"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -75,10 +76,10 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ProductsPage(props) {
   const classes = useStyles();
-  const { pId } = useParams();
+  const { cId } = useParams();
   const [products, setProducts] = useState([]);
   const [totalProducts, setTotalProducts] = useState(null);
-  // const [sort, setSort] = useState("");
+  const [sort, setSort] = useState("");
   let [activePage, setActivePage] = useState(1);
 
   useEffect(() => {
@@ -91,7 +92,6 @@ export default function ProductsPage(props) {
     const body = await res.json();
     setTotalProducts(body.total);
     setProducts(body.data);
-    console.log(body.data, "=========");
   };
   const handlePageChange = async (pageNumber) => {
     setActivePage(pageNumber);
@@ -100,11 +100,9 @@ export default function ProductsPage(props) {
     );
     const body = await res.json();
     setProducts(body.data);
-
   };
 
   const deleteProduct = async (id) => {
-    console.log("hfgf");
     const res = await fetch(process.env.REACT_APP_SERVER + `/products/${id}`, {
       method: "DELETE",
       headers: {
@@ -112,31 +110,42 @@ export default function ProductsPage(props) {
       },
     });
     if (res.status === 204) {
-      alert("DELETED");
+      Swal.fire({
+        title: "Success!",
+        text: "House Deleted",
+        icon: "success",
+        confirmButtonText: "Cool",
+      });
       getProducts();
+      setActivePage(1);
     } else {
-      alert(`"Cannot delete"`);
+      Swal.fire({
+        title: "Error!",
+        text: "Cannot Delete",
+        icon: "error",
+        confirmButtonText: "Cool",
+      });;
     }
   };
 
-  // const sortLowToHigh = async () => {
-  //   setSort("price");
-  //   const res = await fetch(
-  //     process.env.REACT_APP_SERVER +
-  //       `/products/category/${cId}?sort=price&page=1&limit=8`
-  //   );
-  //   const body = await res.json();
-  //   setProducts(body.data.products);
-  // };
-  // const sortHighToLow = async () => {
-  //   setSort("-price");
-  //   const res = await fetch(
-  //     process.env.REACT_APP_SERVER +
-  //       `/products/category/${cId}?sort=-price&page=1&limit=8`
-  //   );
-  //   const body = await res.json();
-  //   setProducts(body.data.products);
-  // };
+  const sortLowToHigh = async () => {
+    setSort("price");
+    const res = await fetch(
+      process.env.REACT_APP_SERVER + `/products?page=1&limit=8&sort=price`
+    );
+    const body = await res.json();
+    setProducts(body.data);
+    console.log(body);
+  };
+
+  const sortHighToLow = async () => {
+    setSort("-price");
+    const res = await fetch(
+      process.env.REACT_APP_SERVER + `/products?page=1&limit=8&sort=-price`
+    );
+    const body = await res.json();
+    setProducts(body.data);
+  };
 
   let htmlProducts =
     products.length !== 0 ? (
@@ -193,22 +202,28 @@ export default function ProductsPage(props) {
 
   return (
     <div>
-      <div className="d-flex justify-content-around">
-        <h3 className="my-2"></h3>
+      <div
+        className="d-flex justify-content-around"
+        style={{ padding: "25px" }}
+      >
         <form className="form-inline w-50 ml-5">
-          <input
-            className="form-control w-75 mr-sm-2 "
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-            // value={keyword}
-          />
           <button
             style={{ color: "#B91319", backgroundColor: "white" }}
             className="btn btn-outline my-sm-0"
             type="button"
+            onClick={sortLowToHigh}
           >
-            Search
+            {" "}
+            Low to High Price
+          </button>
+          <button
+            style={{ color: "#B91319", backgroundColor: "white" }}
+            className="btn btn-outline my-sm-0"
+            type="button"
+            onClick={sortHighToLow}
+          >
+            {" "}
+            High to Low Price
           </button>
         </form>
         <h4 className="mr-3 my-2">Total: {totalProducts}</h4>

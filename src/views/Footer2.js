@@ -33,7 +33,7 @@ class Footer extends Component {
     let networks = socials.map(function (network) {
       return (
         <li key={network.name}>
-          <a href={network.url} target="_blank" >
+          <a href={network.url} target="_blank">
             <i className={network.className}></i>
           </a>
         </li>
@@ -55,7 +55,6 @@ class Footer extends Component {
             >
               <i class="fas fa-arrow-up"></i>
             </a>
-            <ScrollUpButton />
           </div>
         </div>
       </footer>

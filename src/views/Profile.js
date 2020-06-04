@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Swal from "sweetalert2";
 
 export default function Profile(props) {
   const [userProfile, setUserProfile] = useState({});
@@ -33,9 +34,19 @@ export default function Profile(props) {
     });
     const body = await res.json();
     if (res.status === 202) {
-      alert("Post successfully");
+      Swal.fire({
+        title: "Success!",
+        text: "Update Success",
+        icon: "Success",
+        confirmButtonText: "Cool",
+      });
     } else {
-      alert(`${body.error}`);
+      Swal.fire({
+        title: "Error!",
+        text: `${body.error}`,
+        icon: "error",
+        confirmButtonText: "Cool",
+      });
     }
   };
 

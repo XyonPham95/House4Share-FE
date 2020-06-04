@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 import Moment from "react-moment";
+import Swal from "sweetalert2"
 
 export default function SingleProduct(props) {
   const { pId } = useParams();
@@ -39,8 +40,19 @@ export default function SingleProduct(props) {
       const body = await res.json();
       setProduct(body.data);
       setOwner(body.data.owner);
+      Swal.fire({
+        title: "Success!",
+        text: "Success comment",
+        icon: "success",
+        confirmButtonText: "Cool",
+      });
     } else {
-      alert(`"Cannot comment"`);
+      Swal.fire({
+        title: "Error!",
+        text: "Cannot comment",
+        icon: "error",
+        confirmButtonText: "Cool",
+      });
     }
   };
 
@@ -131,6 +143,7 @@ export default function SingleProduct(props) {
                     Especially do not like noisy people.
                   </li>
                 </ul>
+                <h4> Rooms: {product.room}</h4>
                 <h4> Contact: </h4>
                 <p
                   class="owner"

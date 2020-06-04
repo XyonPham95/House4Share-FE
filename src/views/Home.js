@@ -10,6 +10,7 @@ import AccountCircle from "@material-ui/icons/AccountCircle";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import { useHistory, Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -68,8 +69,19 @@ export default function MenuAppBar(props) {
       props.setUser(null);
       localStorage.removeItem("token");
       history.push("/login");
+      Swal.fire({
+        title: "Success!",
+        text: "Log Out Success",
+        icon: "success",
+        confirmButtonText: "Cool",
+      });
     } else {
-      alert("cannot log out");
+      Swal.fire({
+        title: "Error!",
+        text: "Cannot Log Out",
+        icon: "error",
+        confirmButtonText: "Cool",
+      });
     }
   }
 

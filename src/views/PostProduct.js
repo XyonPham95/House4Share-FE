@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Button from "@material-ui/core/Button";
 import { Label, Input } from "reactstrap";
+import Swal from "sweetalert2";
 
 export default function PostProductPage() {
   const [categorys, setCategory] = useState([]);
@@ -49,15 +50,30 @@ export default function PostProductPage() {
         const body = await res.json();
         console.log(body);
         if (res.status === 201) {
-          alert("Post successfully");
+          Swal.fire({
+            title: "Success!",
+            text: "Post House Successfully",
+            icon: "succes",
+            confirmButtonText: "Cool",
+          });
         } else {
-          console.log("error");
+          Swal.fire({
+            title: "Error!",
+            text: "Something went wrong",
+            icon: "error",
+            confirmButtonText: "Cool",
+          });
         }
       } else {
         console.log("cannot upload because of", data.message);
       }
     } else {
-      alert("cannot upload");
+      Swal.fire({
+        title: "Error!",
+        text: "Cannot upload",
+        icon: "error",
+        confirmButtonText: "Cool",
+      });
     }
   };
   return (

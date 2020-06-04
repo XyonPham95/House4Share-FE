@@ -4,7 +4,6 @@ import { withStyles } from "@material-ui/core/styles";
 import Button from "../components/Button";
 import Typography from "../components/Typography";
 import ProductHeroLayout from "./ProductHeroLayout";
-import { Link } from "react-router-dom";
 
 const backgroundImage =
   "https://cdn.dribbble.com/users/1081269/screenshots/7604658/media/1727594504dd56b2f65d75104273a1cc.jpg";
@@ -62,18 +61,7 @@ function ProductHero(props) {
       >
         Register
       </Button>
-      <Typography variant="body2" color="inherit" className={classes.more}>
-        OR
-      </Typography>
-      <Link
-        color="inherit"
-        variant="h6"
-        underline="none"
-        className={classes.rightLink}
-        to="/login/"
-      >
-        {"Sign In"}
-      </Link>
+
       <Typography variant="body2" color="inherit" className={classes.more}>
         TO
       </Typography>
