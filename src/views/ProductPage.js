@@ -96,7 +96,6 @@ export default function ProductsPage(props) {
     const body = await res.json();
     setTotalProducts(body.total);
     setProducts(body.data);
-    console.log(body.data);
   };
 
   const getCategory = async () => {
@@ -257,7 +256,7 @@ export default function ProductsPage(props) {
         </div>
       </div>
     );
-  console.log(props.user);
+
   return (
     <div>
       <div
